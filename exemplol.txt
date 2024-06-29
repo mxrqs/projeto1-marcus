@@ -1,0 +1,54 @@
+-=[LISTA DE COMANDOS PARA CMD]=- ~Acesse: youtube.com/c/thelite
+
+~[PRINCIPAIS] - Melhora o FPS
+
+Rundll32.exe advapi32.dll,ProcessIdleTasks
+
+REG ADD HKLM\SYSTEM\CurrentControlSet\Control\PriorityControl /v Win32PrioritySeparation /t REG_DWORD /d 38
+
+
+~[BCDEDITS] - Melhora o Desempenho Geral e Inputlag/Delay
+
+bcdedit /set useplatformtick yes   - synthetic timers
+bcdedit /set disabledynamictick yes  - dynamic tick 
+bcdedit /deletevalue useplatformclock - hpet
+
+
+~[LIMPEZA] - Limpeza Geral 
+
+cleanmgr.exe C
+
+
+~[USO DE MÉMORIA] - Melhora o uso de RAM
+
+Fsutil behavior query memoryusage
+Fsutil behavior set memory usage 2
+
+
+~[DESATIVAR HIBERNAÇÃO] - Desativa a Hibernação do Windows
+
+powercfg.exe /hibernate off
+
+
+~[DESATIVAR NOTIFICAÇÕES] - Desativa as Notificações do Windows
+
+Fsutil behavior query DisableDeleteNotify
+fsutil behavior set disabledeletenotify 0
+
+
+~[PLANO DE ENERGIA] - Adiciona o Plano de Energia Desempenho Maximo
+
+powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61
+
+
+~[INTERNET] - Melhora o Ping em Jogos e a Internet
+
+ipconfig /release
+ipconfig /renew
+ipconfig /flushdns
+
+netsh winsock reset
+netsh advfirewall firewall add rule name="StopThrottling" dir=in action=block remoteip=173.194.55.0/24,206.111.0.0/16 enable=yes
+
+
+-=[FIM :D]=- ~Acesse: youtube.com/c/thelite
